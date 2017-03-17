@@ -1,7 +1,5 @@
 <?php
-function getCategories( $_db ) {
-	
-	$res = sql( $_db, 'SELECT * FROM `categories`', [], 'rows' );
-	
-	return $res;
+function getCategories( $db ) {
+$res = sql( $db, 'SELECT * FROM `categories`', [], 'rows' );
+return $res;
 }

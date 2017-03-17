@@ -1,8 +1,4 @@
-<?php
-include "registr/come.php"
-?>
-
-
+﻿
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,13 +7,13 @@ include "registr/come.php"
         <meta name="description" content="">
         <meta name="author" content="">
         <title>Главная</title>
-        <link href="templaces/css/bootstrap.min.css" rel="stylesheet">
-        <link href="templaces/css/font-awesome.min.css" rel="stylesheet">
-        <link href="templaces/css/prettyPhoto.css" rel="stylesheet">
-        <link href="templaces/css/price-range.css" rel="stylesheet">
-        <link href="templaces/css/animate.css" rel="stylesheet">
-        <link href="templaces/css/main.css" rel="stylesheet">
-        <link href="templaces/css/responsive.css" rel="stylesheet">
+        <link href="views/css/bootstrap.min.css" rel="stylesheet">
+        <link href="views/css/font-awesome.min.css" rel="stylesheet">
+        <link href="views/css/prettyPhoto.css" rel="stylesheet">
+        <link href="views/css/price-range.css" rel="stylesheet">
+        <link href="views/css/animate.css" rel="stylesheet">
+        <link href="views/css/main.css" rel="stylesheet">
+        <link href="views/css/responsive.css" rel="stylesheet">
         <!--[if lt IE 9]>
         <script src="js/html5shiv.js"></script>
         <script src="js/respond.min.js"></script>
@@ -59,15 +55,36 @@ include "registr/come.php"
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="logo pull-left">
-                                <a href="#"><img class="img-main" src="templaces/images/shop/e-shopping.jpg" alt="" />Different things</a>
+                                <a href="#"><img class="img-main" src="views/images/shop/e-shopping.jpg" alt="" />Different things</a>
                             </div>
                         </div>
                         <div class="col-sm-8">
                             <div class="shop-menu pull-right">
-                                <ul class="nav navbar-nav">                                    
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
-                                    <li><a href="#"><i class="fa fa-user"></i> Аккаунт</a></li>
-                                    <li><a href="#"><i class="fa fa-lock"></i> Вход</a></li>
+                                <ul class="nav navbar-nav">     
+                                    <li><a href="/order"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
+                                    <li><a href="/registration"><i class="fa fa-user"></i> Реєстрація</a></li>
+                                    <li>
+<section>
+<?php
+    if(!empty($_SESSION['user'] )) {
+?>
+                                    <a href="/login"><i class="fa fa-lock"></i> Вход</a>
+
+<?php
+}
+else {
+    ?>
+    <p><a href="/">Мой профиль</a></p>
+    <p><a href="views/exit.php">Выйти  (<?php echo $_SESSION['user']; ?>)</a></p>
+<?php   
+}
+?>
+</section>
+
+
+
+
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -90,21 +107,37 @@ include "registr/come.php"
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
                                     <li><a href="/">Главная</a></li>
-      <li class="dropdown"><a href="/catalog">Каталог<i class="fa fa-angle-down"></i></a>
-                                        <ul role="menu" class="sub-menu">
+     <li class="dropdown"><a href="/catalog">Каталог<i class="fa fa-angle-down"></i></a>
+                                <!--         <ul role="menu" class="sub-menu">
                                             <li>
-		<?php 	include 'main.view.php'; ?>   
-	</li>
+        <?php   include 'main.view.php'; ?>   
+    </li>
                                       
-                                        </ul>
+                                        </ul> -->
                                     
                                     </li> 
 
 
-                                   
-                                    <li><a href="#">О магазине</a></li>
-                                    <li><a href="#">Контакты</a></li>
-                                    <li><button class="buy-product btn" data-id="">BUY</button></li>
+                                  <!--  <li><a href="/login">Вхід</a></li>
+<li><a href="/registration">Реєстрація</a></li>
+                                    <li><a href="/order">Корзина</a></li> -->
+
+<!-- <div class="cart container"> -->
+<!--    Продуктов в корзине:
+<?php if (count($_SESSION['cart']) > 0){
+//    echo count($_SESSION['cart']);
+    $countProducts = 0;
+    foreach ($_SESSION['cart'] as $key => $value){
+        $countProducts += $value;
+    }
+    echo $countProducts;
+} else echo 0;
+?> -->
+<!-- </div> -->
+
+
+                                     
+                                   <!--  <li><button class="buy-product btn" data-id="">BUY</button></li> -->
                                 </ul>
                             </div>
                         </div>
@@ -112,7 +145,7 @@ include "registr/come.php"
                 </div>
             </div><!--/header-bottom-->
             
-        </header><!--/header-->
+      <!--/header-->
 
 
 
@@ -122,15 +155,15 @@ include "registr/come.php"
 
 
 
-  <div class="collapse navbar-collapse" id="responsive-menu">
+  <!-- <div class="collapse navbar-collapse" id="responsive-menu">
             <ul class="nav navbar-nav">
                 <li><a href="/admin/main">Admin</a></li>
                 <li><a href="registr/signup.php">Регистрация</a></li>
 
             </ul>
-        </div>
-<section>
-<?php
+        </div> -->
+<!-- <section> -->
+<!-- <?php
 	if(empty($_COOKIE['name'])) {
 ?>
 	<form action="/" method="POST">
@@ -149,7 +182,10 @@ else {
 <?php	
 }
 ?>
-</section>
+</section> -->
+ </header>
+ </body>
+ </html>
 
 
       <!--   <div class="container">

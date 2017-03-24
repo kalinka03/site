@@ -1,5 +1,5 @@
-<?php
- include "views/backet.view.php";
+﻿<?php
+ include "views/basket.view.php";
 
  ?>
 

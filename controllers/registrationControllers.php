@@ -11,9 +11,32 @@ if( $action=='registration'){
 			if (empty($userCheck)){
 				insertUser($db, $name, $email, $password,  $login);
 			}
-			else {
-				echo "такий логін або email вже існує";
-			}
+if(empty($name))
+	{
+		echo "Вdедите имя";
+		exit ();
+	}
+	
+if(empty($login)) {
+		echo "ВВедите логин";
+		exit ();
+	}
+	
+ if ( empty($password)){
+ 	echo "ВВедите пароль";
+ 	exit ();
+ } 
+
+
+ if ( !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+ 		echo "Неправильно введён емейл";
+ }
+
+
+			
+			// else {
+			// 	echo "такий логін або email вже існує";
+			// }
 		}
 	}
 	view('registration');

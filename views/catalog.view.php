@@ -1,7 +1,12 @@
-                             <h1> ВЫБРАННАЯ ВАМИ КАТЕГОРИЯ </h1>
-
+                             <h1 align="center"> ВЫБЕРИТЕ КАТЕГОРИЮ </h1>
+<center>
 <?php 
 foreach( $data as $category ) { ?>
-    <a href="/catalog/<?=$category['id']?>"><?=$category['title'] ?></a><br/>
-  <?php } ?>
+<li border class="catalog_view">
+
+		<a href="/catalog/<?=$category['id']?>"><?=$category['title'] ?></a><br/>
+		
+		</li>
+	<?php } ?>
+	</center>
 

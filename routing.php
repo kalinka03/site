@@ -4,9 +4,11 @@ $routs=[
 'product',
 'registration',
 'login',
-'null',
-'order',
 'basket',
+'clear_basket',
+'logout',
+'order',
+ 'admin'
 ];
 $action = null;
 $subAction = null;
@@ -16,6 +18,8 @@ if( $_SERVER['REQUEST_URI'] != '/' ) {
     $urlArray = explode('/',$url['path']);
     
     $urlArray = array_filter($urlArray);
+
+    
     $action = $urlArray[1];
     if( isset($urlArray[2]) ) {
         if(is_numeric($urlArray[2])){
@@ -28,6 +32,24 @@ if( $_SERVER['REQUEST_URI'] != '/' ) {
         $subAction = null;
     }
 }
+// foreach ($urlArray as $key => $url){
+//         if(isset($url)) {
+//             if ($key == 1) {
+//                 $action = $url;
+//             }
+//             else if ($key > 1) {
+//                 if (is_numeric($_url) && $idRout  == null) {
+//                     $idRout  = $url;
+//                 } else {
+//                     $subAction = $url;
+//                 }
+//             }
+        
+
+
+
+
+
 else {
     $action = 'main';
 }

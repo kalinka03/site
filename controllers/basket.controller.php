@@ -1,27 +1,17 @@
 <?php
 if( $action == 'basket') {
-    if(!empty($_POST)){
-        $productId=$_POST['id'];
-        if( $_SESSION['user'] ) {
-            $_SESSION['basket'][] = $productId;
-        }
-        else {
-            // $_SESSION['flash'] = 'Зареєструйтеся будь ласка.';
-            echo 'Зареєструтесь будь-ласка';
-            header('location: /login');
-            exit();
-        }
-        $i = 0;
-        echo "Товари в корзині :";
-        echo ('</br>');
-                foreach( $_SESSION['basket'] as $productId ) {
-            $product = sql($db, "SELECT * FROM `products` WHERE `id` = $productId", 
-    [],  'rows'  );
-            
-                        echo ++$i . $product[0]['title'];
-                        echo ('</br>');
-        }
-            
-    }
-    include "views/backet.view.php";
-}
+	$basketProducts = [];
+	if(!empty($_SESSION['basket']))
+		foreach($_SESSION['basket'] as $id){
+			$basketProducts[] = getProductId( $db, $id );
+		}
+		if(isset($_POST['clear_basket'] )) {
+			if(!empty($_SESSION['basket'])){
+				unset( $_SESSION['basket'] );
+				$_SESSION['flash_msg'] = "Ваша корзина пуста";
+			}
+
+		}
+
+		view('basket', ['products' => $basketProducts]);
+	}

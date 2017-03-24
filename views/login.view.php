@@ -14,27 +14,7 @@
 							<button type="submit" class="btn btn-default btn-lg pull-right ">Відправити</button>
 	</form>
 
-<!-- 	<section>
-<?php
-	if(empty($_COOKIE['name'])) {
-?>
-	<form action="/" method="POST">
-		<label for="username">Логин:</label>
-	<input type="text" name="username"> <br/>
-	<label for="password">Пароль:</label>
-	<input type="password" name="password"> <br/>
-	<button type="submit" name="submit">Вход</button><br/>
-	</form>
-<?php
-}
-else {
-	?>
-	<p><a href="/">Мой профиль</a></p>
-	<p><a href="views/exit.php">Выйти  (<?php echo $_COOKIE['name']; ?>)</a></p>
-<?php	
-}
-?>
-</section> -->
+
 	</body>
 	</html>
 

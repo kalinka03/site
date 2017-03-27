@@ -1,8 +1,16 @@
 <div class="create">
-<p><a href="/admin/category?method=create">Створити категорію</a></p> 
+<p align="center"><a href="/admin/category?method=create">Створити категорію</a></p> 
 </div>
 
+   <center>
  <table style="border-collapse: collapse;"> 
+<tr style="border-collapse: collapse;">
+<td style="border: solid 1px black; padding: 10px"><b>number</b></td>
+<td style="border: solid 1px black; padding: 10px"><b>title</b></td>
+<td style="border: solid 1px black; padding: 10px"><b>edit</b></td>
+<td style="border: solid 1px black; padding: 10px"><b>delete</b></td>
+
+</tr>
   
     <?php 
      $k=0;
@@ -30,3 +38,4 @@
     <?php } ?>
 
 </table>  
+</center>

@@ -1,6 +1,6 @@
 <?php
 if ($action == null){
-    //header();
+  
     include "views/404.view.php";
 }
 include "controllers/catalogController.php";
@@ -13,16 +13,16 @@ include "controllers/orderController.php";
 include "controllers/logoutController.php";
 
 
-// var_dump($_SESSION['user_role'] );
+
 if( isset( $_SESSION['user'] ) && $_SESSION['user_role'] == 'admin' )  {
  $method = $_GET['method'] ?? null;
  // echo "123";
 // include 'views/admin/headerView.php';
 
-
+if ($subAction!=null){
 $controllerFileName = 'controllers/admin/' . $subAction . 'Controller.php';
 
-if(file_exists( $controllerFileName )) {
+
                 include_once $controllerFileName;
             }
  else {
@@ -31,10 +31,10 @@ if(file_exists( $controllerFileName )) {
 
 
 }
- else {
-            header('location: /login');
-            exit();
-        }
+else {
+           header('location: /login');           
+ exit();
+       }
 
 // else {
 //             header('location: /login');

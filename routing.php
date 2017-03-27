@@ -31,6 +31,11 @@ if( $_SERVER['REQUEST_URI'] != '/' ) {
         $action = null;
         $subAction = null;
     }
+if( $action == 'admin' ) {
+        $method = $_GET['method'] ?? null;
+        $_page = $_GET['page'] ?? 0;
+    }
+
 }
 // foreach ($urlArray as $key => $url){
 //         if(isset($url)) {

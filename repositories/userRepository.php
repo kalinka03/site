@@ -16,14 +16,7 @@ function getUsers( $db ) {
     return $users;
 }
 // var_dump($users );
-function getUsersCount( $db ) {
-    $usersCount = sql($db,
-        'SELECT COUNT(*) as users_count FROM `users`',
-        [],
-        'rows'
-    );
-    return $usersCount;
-}
+
 function getUser( $db, $id ) {
     $user = sql($db,
         'SELECT * FROM `users` WHERE `id` = '.$id,
@@ -51,28 +44,13 @@ function deleteUser($db, $id){
 return $user;
 }
 
+function getUsersCount( $db ) {
+    $usersCount = sql($db,
+        'SELECT COUNT(*) as users_count FROM `users`',
+        [],
+        'rows'
+    );
+    return $usersCount;
+}
 
 
-
-
-
-// categories
-
-// function getCategories( $db ) {
-  
-//     $categories = sql($db,
-//         'SELECT * FROM `categories` 
-//         ORDER BY `id` DESC ',
-//         [],
-//         'rows'
-//     );
-//     return $categories;
-// }
-// function getCategorie( $db, $id ) {
-//     $categorie = sql($db,
-//         'SELECT * FROM `categories` WHERE `id` = '.$id,
-//         [],
-//         'rows'
-//     );
-//     return $categorie;
-// }

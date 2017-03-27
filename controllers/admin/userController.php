@@ -42,8 +42,17 @@ else if($subAction=='user'&& $method=='insert'){
 }
 else if($subAction=='user'){
     $users = getUsers($db);
-    viewHelpers('admin/user', $users);
+    // viewHelpers('admin/user', $users);
+
+     $allUsersCount = getUsersCount($db)[0]['users_count'];
+    
+    $pagination = [
+        'pages_count' => ceil($allUsersCount / $_config['items_on_page'])
+    ];
+    viewHelpers('admin/user', ['user'=>$users, 'pagination' => $pagination]);
 }
+
+
 
 
 

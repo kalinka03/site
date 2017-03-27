@@ -1,18 +1,31 @@
-<div class="create">
-<p><a href="/admin/user?method=create">Створити користувача</a></p> 
+﻿<div class="create">
+<p align="center"><a href="/admin/user?method=create">Створити користувача</a></p> 
 </div>
 
-  <table style="border-collapse: collapse;"> 
+  <center>
+ <table style="border-collapse: collapse;"> 
+<tr style="border-collapse: collapse;">
+<td style="border: solid 1px black; padding: 10px"><b>number</b></td>
+<td style="border: solid 1px black; padding: 10px"><b>name</b></td>
+<td style="border: solid 1px black; padding: 10px"><b>email</b></td>
+<td style="border: solid 1px black; padding: 10px"><b>edit</b></td>
+<td style="border: solid 1px black; padding: 10px"><b>delete</b></td>
+
+</tr>
   
-    <?php 
-     $k=0;
-     foreach( $data as $key=> $user) { ?>
-    
-      <?php $k++; ?> 
+   <?php 
+	global $_config, $_page;
+	$i=$_page*$_config['items_on_page']; ?>
+	<?php
+	
+	foreach ($data['user'] as $key => $user) {
+
+		$i++;
+		?>
 
   <tr  style="border-collapse: collapse;">
             <td style="border: solid 1px black; padding: 10px">
-                <?= $k ?>
+                <?= $i ?>
             </td>
             <td style="border: solid 1px black;  padding: 10px">
                 <?= $user['name'] ?>
@@ -30,25 +43,13 @@
     <?php } ?>
 
 </table>  
+</center>
 
-<!-- <div class="pagination">
+<div class="pagination">
 
-    <?php for( $page=0; $page < $data['pagination']['pages_count']; $page++ ) { ?>
+    <?php pagination(
+        $data['pagination']['pages_count'],
+        '/admin/user'
+    ); ?>
 
-        <?php $curPage = $_page; ?>
-
-        <?php if( ($page < $curPage+3 && $page > $curPage-3)
-            || ( $page == 0 )
-            || ( $page == $data['pagination']['pages_count']-1 )) { ?>
-
-            <a href="/admin/user?page=<?=$page ?>">
-                <?= ( $curPage == $page ) ? '<strong>' : '' ?>
-                    <?=$page + 1 ?>
-                <?= ( $curPage == $page ) ? '</strong>' : '' ?>
-            </a> |
-
-
-        <?php } ?>
-
-    <?php } ?>
- -->
+</div>

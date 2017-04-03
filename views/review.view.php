@@ -1,45 +1,45 @@
 ﻿
 
 <div class="create">
-<p align="center"><a href="/review?method2=create">Додати відгук</a></p> 
+    <p align="center"><a href="/review?method2=create">Додати відгук</a></p> 
 </div>
 
 <center>
- <table style="border-collapse: collapse;"> 
-<tr style="border-collapse: collapse;">
-<td style="border: solid 1px black; padding: 10px"><b>Номер</b></td>
-<td style="border: solid 1px black; padding: 10px"><b>ім'я користувача</b></td>
+   <table style="border-collapse: collapse;"> 
+    <tr style="border-collapse: collapse;">
+        <td style="border: solid 1px black; padding: 10px"><b>Номер</b></td>
+        <td style="border: solid 1px black; padding: 10px"><b>ім'я користувача</b></td>
 
-<td style="border: solid 1px black; padding: 10px"><b>Продукт</b></td>
-<td style="border: solid 1px black; padding: 10px"><b>Коментарій</b></td>
+        <td style="border: solid 1px black; padding: 10px"><b>Продукт</b></td>
+        <td style="border: solid 1px black; padding: 10px"><b>Коментарій</b></td>
 
-</tr>
-<?php
- $k=0;
-     foreach( $data as $key=> $review) { ?>
+    </tr>
+    <?php
+    $k=0;
+    foreach( $data as $key=> $review) { ?>
     
-      <?php $k++; ?> 
+    <?php $k++; ?> 
 
-  <tr  style="border-collapse: collapse;">
-            <td style="border: solid 1px black; padding: 10px">
-                <?= $k ?>
-            </td>
-            <td style="border: solid 1px black;  padding: 10px">
-                <?= $review['user_name'] ?>
-            </td>
-            <td style="border: solid 1px black; padding: 10px">
-                <?= $review['product_titles']  ?>
-            </td>
-               <td style="border: solid 1px black; padding: 10px">
-                <?= $review['text']  ?>
-            </td>
-            <td style="border: solid 1px black; padding: 10px">
-                <a href="/admin/review?method=edit&id=<?=$res['id']?>">Редагувати</a>
-            </td>
-            <td style="border: solid 1px black; padding: 10px">
-                <a href="/admin/review?method=delete&id=<?=$res['id']?>">Видалити</a>
-            </td>
-        </tr>
+    <tr  style="border-collapse: collapse;">
+        <td style="border: solid 1px black; padding: 10px">
+            <?= $k ?>
+        </td>
+        <td style="border: solid 1px black;  padding: 10px">
+            <?= $review['user_name'] ?>
+        </td>
+        <td style="border: solid 1px black; padding: 10px">
+            <?= $review['product_titles']  ?>
+        </td>
+        <td style="border: solid 1px black; padding: 10px">
+            <?= $review['text']  ?>
+        </td>
+        <td style="border: solid 1px black; padding: 10px">
+            <a href="/admin/review?method=edit&id=<?=$res['id']?>">Редагувати</a>
+        </td>
+        <td style="border: solid 1px black; padding: 10px">
+            <a href="/admin/review?method=delete&id=<?=$res['id']?>">Видалити</a>
+        </td>
+    </tr>
     <?php } ?>
 
 </table>  
@@ -83,8 +83,8 @@
         <input type="submit" value="Confirm" class="btn btn-default">
    </div>
     </div>
-    </form> -->
- 
+</form> -->
+
 
 
  <!-- <form method="post" action="/order">
@@ -122,7 +122,7 @@
 
  ?>
 
-<h3> Оформити заказ </h3> -->
+ <h3> Оформити заказ </h3> -->
 //<!--  <h2 align="center">Товари в корзині</h2>
 
 // <form action="" method="post" id="cart-form">

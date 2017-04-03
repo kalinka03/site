@@ -6,23 +6,23 @@ if($action=='review'&& $method2=='create'){
 
 	if( isset($_SESSION['user'] )) {
 // 			if(isset($_POST['id']))	{
-$reviews  = getReview($db);
+		$reviews  = getReview($db);
 		$users= getUsers($db);
 		$products =getProducts($db);
 		
 
-    $review = getReview($db);
-  $products= getProducts($db);
+		$review = getReview($db);
+		$products= getProducts($db);
 
 
-  foreach ($reviews as $key=>$review) {
-    $product = getProducts($db, $review['product_id']);
+		foreach ($reviews as $key=>$review) {
+			$product = getProducts($db, $review['product_id']);
 
 
-    $reviews[$key]['product_name']=$product[0]['title'];
-    // var_dump($reviews[$key]['product_name']);
-  }
-		// echo "1212";
+			$reviews[$key]['product_name']=$product[0]['title'];
+// var_dump($reviews[$key]['product_name']);
+		}
+	// echo "1212";
 		view('reviewCreate', $reviews );
 	}
 }
@@ -41,7 +41,7 @@ else if
 			$products = [];
 			foreach ($productsIds as $productId) {
 				$products[] = getProductId($db, $productId)[0];
-   // var_dump(getProductId($db, $productId)[0]);
+// var_dump(getProductId($db, $productId)[0]);
 			}
 
 			$productTitles = [];
@@ -59,13 +59,13 @@ else if
 			$reviews[$key]['user_name']=$users[0]['name'];
 		}
 
-    // var_dump( $users);
+// var_dump( $users);
 		view('review', $reviews );
 // var_dump($reviewId);
 // 	$reviewId = getReviewsId ($db, $idRout)[0];
 // 	var_dump($reviewId);
-	// view('review', ['review ' => $review, 'products'=>$products]);
-		// view('review');
+// view('review', ['review ' => $review, 'products'=>$products]);
+	// view('review');
 	}
 
 
@@ -126,6 +126,6 @@ else if
 
 // 		}}
 // 	}
-	
+
 // 	view('login');
 // } 

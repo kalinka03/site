@@ -1,30 +1,30 @@
 ﻿<center>
     
 
-<form action="/review/?method2=insert" method="POST">
+    <form action="/review/?method2=insert" method="POST">
 
 
-<input type="text" placeholder="Введіть Ваше ім'я" name="insert[user_name]" value=""><br/>
- 
+        <input type="text" placeholder="Введіть Ваше ім'я" name="insert[user_name]" value=""><br/>
+        
         <select  style="width:150px" name="form[product_id]" id="">
-    
-        <?php 
+            
+            <?php 
 
-        foreach ($reviews as $key=>$review){?>
+            foreach ($reviews as $key=>$review){?>
             <option style="width=50px" value="<?=$product['id']?>"><?=$review['product_name']?></option>
 
- <br/>
-        <?php
+            <br/>
+            <?php
         }
         ?>
         <br/>
 
     </select>
-     <input type="text" placeholder="Відгук" name="insert[text]" value=""><br/>
+    <input type="text" placeholder="Відгук" name="insert[text]" value=""><br/>
     <br>
 
 
-      
+    
     <button type="submit">Додати відгук</button>
 </form>
 
@@ -65,7 +65,7 @@
 
 </table>  
 </center>
- -->
+-->
 
 
 
@@ -104,8 +104,8 @@
         <input type="submit" value="Confirm" class="btn btn-default">
    </div>
     </div>
-    </form> -->
- 
+</form> -->
+
 
 
  <!-- <form method="post" action="/order">
@@ -143,7 +143,7 @@
 
  ?>
 
-<h3> Оформити заказ </h3> -->
+ <h3> Оформити заказ </h3> -->
 //<!--  <h2 align="center">Товари в корзині</h2>
 
 // <form action="" method="post" id="cart-form">

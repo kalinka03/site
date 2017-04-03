@@ -1,7 +1,7 @@
 <?php
 function getReview( $db ) {
-$review = sql( $db, 'SELECT * FROM `reviews`', [], 'rows' );
-return $review;
+    $review = sql( $db, 'SELECT * FROM `reviews`', [], 'rows' );
+    return $review;
 }
 function getReviewsId($db, $idRout){
 	$reviewId = sql( $db,  'SELECT * FROM `reviews` WHERE `id` = '.$idRout, [], 'rows' );
@@ -19,7 +19,7 @@ function getReviewsId($db, $idRout){
 
 
 // function getCategoriesById( $db, $id ) {
-  
+
 //     $res = sql($db,
 //         'SELECT * FROM `categories` WHERE `id` = '.$id,
 //         [],

@@ -2,21 +2,21 @@
 <?php
 
 if($subAction=='category'&& $method=='edit'){
-	   $id=$_GET['id'];
-	$res=getCategoriesById($db, $id);
+    $id=$_GET['id'];
+    $res=getCategoriesById($db, $id);
 	// var_dump($res);
- viewHelpers('admin/categoryEdit', ['category' => $res[0]]);
+    viewHelpers('admin/categoryEdit', ['category' => $res[0]]);
 }
 else if($subAction=='category'&& $method=='update'){
 	$id = $_POST['form']['id'];
     $res= saveCategories($db, $_POST['form']);
-if( $res && $_FILES['avatar'] ) {
+    if( $res && $_FILES['avatar'] ) {
         $fileName = 'avatar_'.$id.'.jpg';
 
         move_uploaded_file($_FILES['avatar']['tmp_name'], 'files/avatars/'.$fileName);
     }
 
-      header('location: /admin/category');
+    header('location: /admin/category');
     exit();
 }
 

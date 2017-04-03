@@ -1,20 +1,20 @@
 <?php
 if($subAction=='product'&& $method=='edit'){
   $id=$_GET['id'];
-$categories = getCategories($db);
+  $categories = getCategories($db);
   $product= getProductId($db, $id);
 
   viewHelpers('admin/productEdit', ['product' => $product[0], 'category' => $categories]);
 }
 else if($subAction=='product'&& $method=='update'){
-    $id = $_POST['form']['id'];
+  $id = $_POST['form']['id'];
   $res= saveProduct($db, $_POST['form']);
-if( $res && $_FILES['product'] ) {
-        $fileName = 'product_'.$id.'.jpg';
+  if( $res && $_FILES['product'] ) {
+    $fileName = 'product_'.$id.'.jpg';
 
-        move_uploaded_file($_FILES['product']['tmp_name'], 'files/products/'.$fileName);
+    move_uploaded_file($_FILES['product']['tmp_name'], 'files/products/'.$fileName);
 
-}
+  }
   header('location: /admin/product');
   exit();
 }
@@ -25,7 +25,7 @@ else if($subAction=='product'&& $method=='delete'){
   exit();
 }
 else if($subAction=='product'&& $method=='create'){
-    $category = getCategories($db);
+  $category = getCategories($db);
   $products= getProducts($db);
 
 
@@ -38,19 +38,19 @@ else if($subAction=='product'&& $method=='create'){
     // var_dump($category[0]['title']);
   }
 
-    viewHelpers('admin/productCreate');
+  viewHelpers('admin/productCreate');
 }
 
 else if($subAction=='product'&& $method=='insert'){
-    $datares=$_POST['insert'];
-    $title=$datares['title'];
-     $description=$datares['description'];
-      $price=$datares['price'];
-         $category_id=$datares['category_id'];
+  $datares=$_POST['insert'];
+  $title=$datares['title'];
+  $description=$datares['description'];
+  $price=$datares['price'];
+  $category_id=$datares['category_id'];
 
-    $resProduct= insertProduct($db, $title,$description, $price, $category_id );
-    header('location: /admin/product');
-    exit();
+  $resProduct= insertProduct($db, $title,$description, $price, $category_id );
+  header('location: /admin/product');
+  exit();
 }
 
 else if($subAction=='product'){
@@ -112,7 +112,7 @@ else if($subAction=='product'){
 // }
 
 // else if($subAction=='product'&& $method=='update'){
-    
+
 //   $resProduct= saveProduct($db, $_POST['form']);
 
 //   header('location: /admin/product');
@@ -162,12 +162,12 @@ else if($subAction=='product'){
 // $res = getCategories($db, $product['category_id']);
 
 //          $resProduct[$key]['category_name']=$res[0]['title'];
-        
+
 //     }
 
-  
+
 //     viewHelpers('admin/product', $resProduct);
-    
+
 // }
 
 
@@ -192,7 +192,7 @@ else if($subAction=='product'){
 //     	$category = getCategoriesId($db, $product['category_id']);
 //     	var_dump($category); exit();
 
-      
+
 //    $product['category_name']=$category[0]['title'];
 
 

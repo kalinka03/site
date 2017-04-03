@@ -38,3 +38,8 @@ function getOrderCount( $db ) {
     );
     return $orderCount;
 }
+
+function insertOrder($db, $user_id, $product_id, $status, $name, $surname,  $total_price, $adress, $telefone){
+    $insertOrder = $db->prepare("INSERT INTO orders(`user_id`, `product_id`, `status`, `total_price`, `name`, `surname`, `adress`, `telefone`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $insertOrder->execute(array($user_id, $product_id, $status, $total_price, $name, $surname, $adress, $telefone));
+}

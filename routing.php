@@ -8,6 +8,7 @@ $routs=[
 'clear_basket',
 'logout',
 'order',
+'review',
  'admin'
 ];
 $action = null;

@@ -32,6 +32,8 @@ function deleteProduct($db, $id){
 return $res;
 }
 
+
+
 function insertProduct($db, $title, $description, $price, $category_id){
     $insertProduct = $db->prepare("INSERT INTO products(`title`, `description`, `price`, `category_id`) VALUES (?, ?, ?, ?)");
     $insertProduct->execute(array($title, $description, $price, $category_id));

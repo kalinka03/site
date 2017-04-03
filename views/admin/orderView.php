@@ -6,10 +6,12 @@
 
 <center>
  <table style="border-collapse: collapse;"> 
-<!-- <tr style="border-collapse: collapse;">
+<tr style="border-collapse: collapse;">
 <td style="border: solid 1px black; padding: 10px"><b>number</b></td>
 <td style="border: solid 1px black; padding: 10px"><b>user_id</b></td>
+<td style="border: solid 1px black; padding: 10px"><b>user_name</b></td>
 <td style="border: solid 1px black; padding: 10px"><b>product_id</b></td>
+<td style="border: solid 1px black; padding: 10px"><b>product_name</b></td>
 <td style="border: solid 1px black; padding: 10px"><b>status</b></td>
 <td style="border: solid 1px black; padding: 10px"><b>total_price</b></td>
 <td style="border: solid 1px black; padding: 10px"><b>name</b></td>
@@ -19,7 +21,7 @@
 <td style="border: solid 1px black; padding: 10px"><b>edit</b></td>
 <td style="border: solid 1px black; padding: 10px"><b>delete</b></td>
 
-</tr> -->
+</tr>
 
   
     <?php 
@@ -42,7 +44,7 @@
                 <?= $order['product_id'] ?>
             </td>
             <td style="border: solid 1px black; padding: 10px">
-          <?=$order['product_name'] ?>
+          <?=$order['product_titles'] ?>
         </td>
               <td style="border: solid 1px black; padding: 10px">
                 <?= $order['status'] ?>

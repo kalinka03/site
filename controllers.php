@@ -11,7 +11,7 @@ include "controllers/registrationControllers.php";
 include "controllers/productControllers.php";
 include "controllers/orderController.php";
 include "controllers/logoutController.php";
-
+include "controllers/reviewController.php";
 
 
 if( isset( $_SESSION['user'] ) && $_SESSION['user_role'] == 'admin' )  {
@@ -32,8 +32,8 @@ $controllerFileName = 'controllers/admin/' . $subAction . 'Controller.php';
 
 }
 else {
-           header('location: /login');           
- exit();
+          view('header.php');        
+//  exit();
        }
 
 // else {

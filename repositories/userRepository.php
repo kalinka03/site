@@ -5,11 +5,12 @@ function insertUser($db, $name, $email, $password,  $login){
 }
 
 
-function getUsers( $db ) {
-  
+function getUsers($db) {
+    global $_config, $_page;
     $users = sql($db,
         'SELECT * FROM `users` 
-        ORDER BY `id` DESC ',
+        ORDER BY `id` DESC 
+        LIMIT '.($_page*20).','.$_config['items_on_page'],
         [],
         'rows'
     );

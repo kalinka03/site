@@ -11,7 +11,7 @@ if( $action == 'login'){
 				$_SESSION['user_name']=$userLogIn[0]['name'];
                 $_SESSION['user_role']=$userLogIn[0]['role'];
 				$_SESSION['flash_msg'] = "Ви увійшли як користувач" ." ". $userLogIn[0]['name'] ;
-$_SESSION['flash_msg'] = "Ви увійшли як адмін" ." ". $userLogIn[0]['role'] ;
+$_SESSION['flash_msg'] = "Ви увійшли як " ." ". $userLogIn[0]['role'] ;
 				include "views/header.php";
 				exit();
 			}

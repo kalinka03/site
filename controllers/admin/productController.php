@@ -7,9 +7,14 @@ $categories = getCategories($db);
   viewHelpers('admin/productEdit', ['product' => $product[0], 'category' => $categories]);
 }
 else if($subAction=='product'&& $method=='update'){
-    
+    $id = $_POST['form']['id'];
   $res= saveProduct($db, $_POST['form']);
+if( $res && $_FILES['product'] ) {
+        $fileName = 'product_'.$id.'.jpg';
 
+        move_uploaded_file($_FILES['product']['tmp_name'], 'files/products/'.$fileName);
+
+}
   header('location: /admin/product');
   exit();
 }
@@ -20,6 +25,19 @@ else if($subAction=='product'&& $method=='delete'){
   exit();
 }
 else if($subAction=='product'&& $method=='create'){
+    $category = getCategories($db);
+  $products= getProducts($db);
+
+
+  foreach ($products as $key=>$product) {
+    $category = getCategoriesById($db, $product['category_id']);
+// var_dump( $product['category_id']);
+// echo "<hr/>";
+
+    $products[$key]['category_name']=$category[0]['title'];
+    // var_dump($category[0]['title']);
+  }
+
     viewHelpers('admin/productCreate');
 }
 
@@ -41,11 +59,12 @@ else if($subAction=='product'){
 
 
   foreach ($products as $key=>$product) {
-    $category = getCategories($db, $product['category_id']);
-// var_dump($category);
-// exit();
+    $category = getCategoriesById($db, $product['category_id']);
+// var_dump( $product['category_id']);
+// echo "<hr/>";
+
     $products[$key]['category_name']=$category[0]['title'];
-  //   var_dump($category[0]['title']);
+    // var_dump($category[0]['title']);
   }
 
   viewHelpers('admin/product',$products);

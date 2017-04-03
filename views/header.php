@@ -52,6 +52,7 @@
                         <div class="col-sm-8">
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">     
+                                    <li><a href="/review"><i class="fa fa-shopping-cart"></i> Відгуки</a></li>
                                     <li><a href="/basket"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
                                     <li><a href="/registration"><i class="fa fa-user"></i> Реєстрація</a></li> 
                                     <?php

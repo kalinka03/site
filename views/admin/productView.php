@@ -4,17 +4,17 @@
 
  <center>
  <table style="border-collapse: collapse;"> 
-<!-- <tr style="border-collapse: collapse;">
+<tr style="border-collapse: collapse;">
 <td style="border: solid 1px black; padding: 10px"><b>number</b></td>
 <td style="border: solid 1px black; padding: 10px"><b>title</b></td>
 <td style="border: solid 1px black; padding: 10px"><b>description</b></td>
-<td style="border: solid 1px black; padding: 10px"><b>price</b></td>
 <td style="border: solid 1px black; padding: 10px"><b>name catogorie</b></td>
+<td style="border: solid 1px black; padding: 10px"><b>price</b></td>
 
 <td style="border: solid 1px black; padding: 10px"><b>edit</b></td>
 <td style="border: solid 1px black; padding: 10px"><b>delete</b></td>
 
-</tr> -->
+</tr>
   
   <?php 
     global $_config, $_page;

@@ -33,6 +33,7 @@ function saveCategories ( $db, $CategoriesData ) {
 }
 
 function getCategoriesById( $db, $id ) {
+  
     $res = sql($db,
         'SELECT * FROM `categories` WHERE `id` = '.$id,
         [],

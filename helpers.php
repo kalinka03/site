@@ -40,7 +40,7 @@ function pagination( $pagesCount, $section ) {
     global $_page;
     for( $page=0; $page < $pagesCount; $page++) {
         $curPage = $_page;
-        if (($page < $curPage + 3 && $page > $curPage - 3)
+        if (($page < $curPage + 2 && $page > $curPage - 2)
             || ($page == 0)
             || ($page == $pagesCount - 1)
         ) {

@@ -40,6 +40,18 @@ function insertProduct($db, $title, $description, $price, $category_id){
 }
 
 
+function getProduct( $db ) {
+  
+    $res = sql($db,
+        'SELECT * FROM `products` 
+        ORDER BY `id` DESC ',
+        [],
+        'rows'
+    );
+    return $res;
+}
+
+
 
 
 

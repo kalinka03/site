@@ -36,37 +36,3 @@ else {
 //  exit();
        }
 
-// else {
-//             header('location: /login');
-//             exit();
-//         }
-
-
-
-
-// if(isset($action)) {
-//     if( $action != 'admin' ) {
-//         $controllerFileName = 'controllers/' . $action . 'Controller.php';
-//         if(file_exists( $controllerFileName )) {
-//             include_once $controllerFileName;
-    //     }
-    // }
-    // else {
-    // 	echo "now";
-    // }
-    // else {
-        // if( isset( $_SESSION['user'] ) && $_SESSION['user']['role'] == 'admin' )  {
-            // $method = $_GET['method'] ?? null;
-            // $page = $_GET['page'] ?? 0;
-            // include 'views/admin/headerView.php';
-            // $controllerFileName = 'controllers/admin/' . $subAction . 'Controller.php';
-            // if(file_exists( $controllerFileName )) {
-            //     include_once $controllerFileName;
-            // }
-        // }
-        // else {
-        //     header('location: /login');
-        //     exit();
-        // }
-//     }
-// }

@@ -32,7 +32,8 @@ function saveUser( $db, $userData ) {
           `name` = "'. $userData['name'] .'",  
           `email` = "'. $userData['email'] .'",  
           `login` = "'. $userData['login'] .'",  
-          `password` = "'. sha1($userData['password']) .'"
+      
+  `password` = "'. sha1($userData['password']) .'"
           WHERE `id` = '.$userData['id']
     );
     return $user;
@@ -42,6 +43,10 @@ function deleteUser($db, $id){
         WHERE `id`='.$id,
         []  
     );
+  
+  
+  unlink('files/avatars/avatar_' . $id . '.jpg');
+
 return $user;
 }
 

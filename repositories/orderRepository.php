@@ -4,10 +4,6 @@ function getOrders( $db ) {
     return $orders;
 }
 
-
-
-
-
 function getOrderId($db, $id){
     $res = sql( $db, 'SELECT * FROM `orders` WHERE `id` = '.$id, [],  'rows');
     return $res;
@@ -15,10 +11,10 @@ function getOrderId($db, $id){
 function saveOrder( $db, $orderData ) {
     $product = sql($db,
         'UPDATE `orders` set 
-        
-        `total_price` = "'. $orderData['total_price'] .'",
+
+        `total_price` = '. $orderData['total_price'] .',
         `status` = "'. $orderData['status'] .'"
-        
+
         WHERE `id` = '.$orderData['id']
         );
     return $product;

@@ -11,11 +11,6 @@ else if($subAction=='user'&& $method=='update'){
         $fileName = 'avatar_'.$id.'.jpg';
 
         move_uploaded_file($_FILES['avatar']['tmp_name'], 'files/avatars/'.$fileName);
-        // if(!file_exists('files')){
-        //     mkdir('files/avatars', 0777, true);
-        // }
-        
-        // move_uploaded_file($_FILES['avatar']['tmp_name'], 'files/avatars/'.$fileName);
     }
 
     header('location: /admin/user');
@@ -23,7 +18,12 @@ else if($subAction=='user'&& $method=='update'){
 }
 else if($subAction=='user'&& $method=='delete'){
     $id=$_GET['id'];
+       if ( file_exists( 'avatars/avatar_'.$id.'.jpg' ) ) {
+  
+  unlink('/files/avatars/avatar_' . $id . '.jpg');
+}
     $user= deleteUser($db, $id);
+
     header('location:/admin/user');
     exit();
 }
@@ -42,7 +42,6 @@ else if($subAction=='user'&& $method=='insert'){
 }
 else if($subAction=='user'){
     $users = getUsers($db);
-    // viewHelpers('admin/user', $users);
 
      $allUsersCount = getUsersCount($db)[0]['users_count'];
     

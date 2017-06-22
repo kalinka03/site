@@ -49,12 +49,6 @@ else if($subAction=='order'){
 	$orders= getOrders($db);
 
 	foreach ($orders as $key => $order) {
-		
-
-
-// 	var_dump($order['user_id']);
-
-// echo "<br/>";
 
 		$productsIds = explode(',', $order['product_id']);
 // var_dump($productsIds);
@@ -76,18 +70,6 @@ else if($subAction=='order'){
 		$str = join(',', $productTitles); 
 
 		$orders[$key]['product_titles'] = $str;
-
-
-
-
-
-
-
-
-
-
-
-
 		$user= getUser($db, $order['user_id']);
 // 	var_dump($user);
 

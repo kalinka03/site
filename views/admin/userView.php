@@ -46,10 +46,10 @@
 </center>
 
 <div class="pagination">
-
-    <?php pagination(
+echo " $postsCount";
+    <!-- <?php pagination(
         $data['pagination']['pages_count'],
         '/admin/user'
     ); ?>
-
+ -->
 </div>

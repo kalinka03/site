@@ -26,17 +26,17 @@ else if($subAction=='product'&& $method=='delete'){
 }
 else if($subAction=='product'&& $method=='create'){
   $category = getCategories($db);
-  $products= getProducts($db);
+   $products= getProducts($db);
 
 
-  foreach ($products as $key=>$product) {
-    $category = getCategoriesById($db, $product['category_id']);
-// var_dump( $product['category_id']);
-// echo "<hr/>";
+   foreach ($products as $key=>$product) {
+     $category = getCategoriesById($db, $product['category_id']);
+// // var_dump( $product['category_id']);
+// // echo "<hr/>";
 
     $products[$key]['category_name']=$category[0]['title'];
-    // var_dump($category[0]['title']);
-  }
+     // var_dump($category[0]['title']);
+   }
 
   viewHelpers('admin/productCreate');
 }
@@ -55,18 +55,6 @@ else if($subAction=='product'&& $method=='insert'){
 
 else if($subAction=='product'){
   $category = getCategories($db);
-  $products= getProducts($db);
-
-
-  foreach ($products as $key=>$product) {
-    $category = getCategoriesById($db, $product['category_id']);
-// var_dump( $product['category_id']);
-// echo "<hr/>";
-
-    $products[$key]['category_name']=$category[0]['title'];
-    // var_dump($category[0]['title']);
-  }
-
   viewHelpers('admin/product',$products);
   
 }

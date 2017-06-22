@@ -1,6 +1,5 @@
 <?php
 include "db.php";
-
 var_dump($db);
 $insertedIds = [];
 function randVal( $valName ) {
@@ -75,7 +74,7 @@ function insertRow( $db, &$insertedIds, $table ) {
     }
     //var_dump("INSERT INTO ".$table."( ".join(',',array_keys($values))." ) VALUES( ".join(',',array_values($values))." )");
     $db->exec("INSERT INTO ".$table."( ".join(',',array_keys($values))." ) VALUES( ".join(',',array_values($values))." )");
-    if( in_array($table,['users','categories','products']) ) {
+    if( in_array($table,['users','categories','products', 'reviews']) ) {
         $insertedIds[$table][] = $db->lastInsertId();
     }
 }

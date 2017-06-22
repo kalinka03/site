@@ -1,153 +1,79 @@
 ﻿
-
-<div class="create">
-    <p align="center"><a href="/review?method2=create">Додати відгук</a></p> 
-</div>
-
-<center>
-   <table style="border-collapse: collapse;"> 
-    <tr style="border-collapse: collapse;">
-        <td style="border: solid 1px black; padding: 10px"><b>Номер</b></td>
-        <td style="border: solid 1px black; padding: 10px"><b>ім'я користувача</b></td>
-
-        <td style="border: solid 1px black; padding: 10px"><b>Продукт</b></td>
-        <td style="border: solid 1px black; padding: 10px"><b>Коментарій</b></td>
-
-    </tr>
-    <?php
-    $k=0;
-    foreach( $data as $key=> $review) { ?>
-    
-    <?php $k++; ?> 
-
-    <tr  style="border-collapse: collapse;">
-        <td style="border: solid 1px black; padding: 10px">
-            <?= $k ?>
-        </td>
-        <td style="border: solid 1px black;  padding: 10px">
-            <?= $review['user_name'] ?>
-        </td>
-        <td style="border: solid 1px black; padding: 10px">
-            <?= $review['product_titles']  ?>
-        </td>
-        <td style="border: solid 1px black; padding: 10px">
-            <?= $review['text']  ?>
-        </td>
-        <td style="border: solid 1px black; padding: 10px">
-            <a href="/admin/review?method=edit&id=<?=$res['id']?>">Редагувати</a>
-        </td>
-        <td style="border: solid 1px black; padding: 10px">
-            <a href="/admin/review?method=delete&id=<?=$res['id']?>">Видалити</a>
-        </td>
-    </tr>
-    <?php } ?>
-
-</table>  
-</center>
-
-
-
-
-
-
-<!-- <form method="post" action="/order">
+<div class="text">
     <div class="container">
-        <table class="table table-bordered table-striped">
-            <tr>
-                <td>Product</td>
-                <td>Price</td>
+        <div class="row">
+            <div class="col-sm-6 col-xs-12">
+                <form  method='post'>
+                    <div class="form-group " >
+                    <?php if( isset($_SESSION['user'] )) {?>
+                        <p><b>Тут може бути Ваш відгук про товар:</b></p>
 
-            </tr>
+                        <select name="form[product_id]" id="">
+                            <option>Виберіть товар</option>
+
+                            <?php 
+                            foreach ($data['product'] as $key => $product){
+                                ?>
+
+                                <option value="<?=$product['id']?>"> 
+                                    <?=$product['title']?>
+                                </option>
+                                <?php
+                            }
+                            ?>
+                        </select>
+                        <p><textarea rows="10" cols="60" name="form[text_review]"></textarea></p>
+
+                        <div class="form-group">
+                            <button type="submit" class="button btn btn-primary pull-right ">Відправити</button>
+                            <?php }
+                            ?>
+                        <?php if( !isset($_SESSION['user'] )) {?>
+                            <p> Зарєєструйтесь щоб залишити відгук </p>
+                            <?php }?>
+                        </div>
+                    </form>  
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <table style="border-collapse: collapse; margin: 30px 20px">
+        <tr style="border-collapse: collapse;">
+            <td style="border: solid 1px black; padding: 10px">назва товарів</td>
+            <td style="border: solid 1px black; padding: 10px">імя користувачa</td>
+            <td style="border: solid 1px black; padding: 10px">відгук</td>
+            <td style="border: solid 1px black; padding: 10px">дата</td>
+        </tr>
         <?php
-            $totalPrice = 0;
-                foreach ($data as $key => $value) {
-                    if (isset($value[0]['title'])){
-                        echo "<tr>";
-                        echo "<td>".$value[0]['title']."</td>";
-                        echo "<td>".$value[0]['price']."</td>";
-                        $totalPrice += $value[0]['price'];
-                        echo "<tr>";
-                    }
-                }
-                echo "</table>";
-                echo "<div class='container'><h5>Total price: ".$totalPrice."</h5></div>";
-        if (isset($data['loginCheck'])){
-            include "layouts/form.php";
-        }
-        else {
-            include "layouts/not_registr.php";
+        
+        foreach ($data['review'] as $key => $review) {
+            ?>
+            <tr style="border-collapse: collapse">
+                <td style="border: solid 1px black; padding: 10px">
+                    <?=$review['product_titles'] ?>
+                </td>
+
+                <td style="border: solid 1px black; padding: 10px">
+                    <?=$review['user_name'] ?>
+                </td>
+                <td style="border: solid 1px black; padding: 10px">
+                    <?=$review['text'] ?>
+                </td>
+                <td style="border: solid 1px black; padding: 10px">
+                    <?=$review['created_at'] ?>
+                </td>
+            </tr>
+            <?php
         }
         ?>
-
-  <!--  <div class="container">
-        <input type="submit" value="Confirm" class="btn btn-default">
-   </div>
-    </div>
-</form> -->
+    </table>
 
 
 
- <!-- <form method="post" action="/order">
-    <div class="container">
-        <table class="table table-bordered table-striped">
-            <tr>
-                <td>Product</td>
-                <td>Price</td>
-                <td>Count</td>
-                <td>Delete</td>
-            </tr>
-        <?php
-        $totalPrice = 0;
-        // if( $productId){
-        //     foreach ($productId as $key => $value) {
-        //         echo "<tr>";
-                echo "<td>".$product[0]['title']."</td>";
-                echo "<td>".$product[0]['price']."</td>";
-                // echo "<td>".$_SESSION['backet'][$value['id']]."</td>";
-                // echo "<td><a href=/basket?delete=".$value['id'].">X</a>";
-                $totalPrice += $$product[0]['price'];
-                echo "<tr>";
-        //     }
-        // }
-            echo "</table>";
-            echo "total price: ".$totalPrice;
-        ?> 
 
-         
-        </div>
-    </form> -->
 
-<!-- <?php
- include "views/backet.view.php";
 
- ?>
 
- <h3> Оформити заказ </h3> -->
-//<!--  <h2 align="center">Товари в корзині</h2>
 
-// <form action="" method="post" id="cart-form">
-
-// </table>  
-// <table id="mycart" align="center" cellspacing="0" cellpadding="0" border="0">
-//       <tr>
-//           <th>Товар</th>
-//             <th>Цена</th>
-//             <th>Кол-во</th>
-//             <th>Всего</th>
-//       </tr>
-
-//       <tr>
-//        <?php
-//        echo "<td>".$product[0]['title']. "</td>";
-//         echo "<td>".$product[0]['price']. "</td>";
-//         ?>
-//           <td align="center"><input type="text" size="2" name="" maxlength="2" value="" /></td>
-//           <td align="center"></td>
-//       </tr>
-// </table>    
-//      <p class="total" align="center">Общая сумма заказа: <span class="product-price">$</span></p>
-//      <p align="center">
-//      <input type="submit" name="update" value="Оформити замовлення" />
-//      </p>
-    
-// </form> -->

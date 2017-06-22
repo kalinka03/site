@@ -1,17 +1,3 @@
-<?php
-// include "db.php";
-
-// $userName=['Maks', 'Alex', 'Peter', 'Kate'];
-// $userEmail=['maks@gmail.com', 'alex@gmail.com', 'peter@gmail.com', 'kate@gmail.com'];
-//  for ($i=0; $i <3 ; $i++) { 
-//   $randUserName=$userName[rand(0,4)];
-//   $insert = $db->prepare("INSERT INTO users(`name`) VALUES(:name)");
-// $insert->execute(array('name' => $randUserName));
-//  }
-
-
-
-
 
 
 <?php

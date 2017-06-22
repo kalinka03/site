@@ -38,23 +38,6 @@ if( $action == 'admin' ) {
     }
 
 }
-// foreach ($urlArray as $key => $url){
-//         if(isset($url)) {
-//             if ($key == 1) {
-//                 $action = $url;
-//             }
-//             else if ($key > 1) {
-//                 if (is_numeric($_url) && $idRout  == null) {
-//                     $idRout  = $url;
-//                 } else {
-//                     $subAction = $url;
-//                 }
-//             }
-        
-
-
-
-
 
 else {
     $action = 'main';

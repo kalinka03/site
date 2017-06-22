@@ -11,32 +11,27 @@ if( $action=='registration'){
 			if (empty($userCheck)){
 				insertUser($db, $name, $email, $password,  $login);
 			}
-if(empty($name))
-	{
-		echo "Вdедите имя";
-		exit ();
-	}
-	
-if(empty($login)) {
-		echo "ВВедите логин";
-		exit ();
-	}
-	
- if ( empty($password)){
- 	echo "ВВедите пароль";
- 	exit ();
- } 
-
-
- if ( !filter_var($email, FILTER_VALIDATE_EMAIL)) {
- 		echo "Неправильно введён емейл";
- }
-
-
+			if(empty($name))
+			{
+				echo "Вdедите имя";
+				exit ();
+			}
 			
-			// else {
-			// 	echo "такий логін або email вже існує";
-			// }
+			if(empty($login)) {
+				echo "ВВедите логин";
+				exit ();
+			}
+			
+			if ( empty($password)){
+				echo "ВВедите пароль";
+				exit ();
+			} 
+
+
+			if ( !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+				echo "Неправильно введён емейл";
+			}
+
 		}
 	}
 	view('registration');
@@ -78,9 +73,9 @@ if(empty($login)) {
 // 		if( $name != '' && $email != '' && $login != '' && $password!= '' ) 
 
 // {
-		
+
 // 			$userCheck = sql( $db, "SELECT * FROM `users` WHERE `login` = '$login' OR `email` = '$email'  OR `password` = 'SHA1($password)'", [], 'rows' );
-			
+
 // 			if (empty($userCheck)){
 // 				insertUser($db, $name, $email, $password,  $login);
 // 			}
@@ -92,12 +87,12 @@ if(empty($login)) {
 // 		echo "Вdедите имя";
 // 		exit ();
 // 	}
-	
+
 // if(empty($login)) {
 // 		echo "ВВедите логин";
 // 		exit ();
 // 	}
-	
+
 //  if ( empty($password)){
 //  	echo "ВВедите пароль";
 //  	exit ();

@@ -13,45 +13,10 @@
     <br>
   
      <input type="number" placeholder="Ціна продукта" name="insert[total_price]" value=""><br/>
-
-
- <!--  <select name="form[products]" id="">
-
-        <?php  foreach( $data['products'] as $product) {
-            ?> 
- 
-        <option value="<?=$products['id'] ?>">
-            <?=$products['titles'] ?>
-        </option>
-
-         <?php } ?>
-
-    </select>  -->
- 
-
-
-
-
-
-
       <input type="text" placeholder="Ваше ім'я" name="insert[name]" value=""><br/>
   <input type="text" placeholder="Ваше прізвище" name="insert[surname]" value=""><br/>
     <input type="text" placeholder="Ваша адреса" name="insert[adress]" value=""><br/>
       <input type="number" placeholder="Ваш телефон" name="insert[telefone]" value=""><br/>
-<!-- <select name="form[category]" id="">
-
-        <?php foreach( $data['res'] as $category ) { ?>
-
-        <option value="<?=$category['id'] ?>">
-            <?=$category['title'] ?>
-        </option>
-
-        <?php } ?>
-
-    </select> -->
-
-
-      
     <button type="submit">Додати замовлення</button>
 </form>
 

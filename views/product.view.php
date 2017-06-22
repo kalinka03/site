@@ -1,4 +1,4 @@
-<center>
+﻿<center>
 	<h1> СТОРІНКА ТОВАРА </h1>
 
 	<?php
@@ -14,4 +14,9 @@
 			<button class="but_view" type="submit" >Відправити в корзину</button >
 			</form>
 		</div>
+
+
+
+
+
 	</center>
